@@ -7,7 +7,7 @@ HOSTED_ZONE_ID="Z09213753OGMO79IX22TR"
 
 create_instance()
 {
-    if [ $module = "frontend"]
+    if [ $module = "frontend" ]
     then
         aws route53 change-resource-record-sets \
     --hosted-zone-id "$HOSTED_ZONE_ID" \
