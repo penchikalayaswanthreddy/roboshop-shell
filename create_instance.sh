@@ -24,3 +24,21 @@ PUBLIC_IP=$(aws ec2 describe-instances \
 
 echo "Private IP: $PRIVATE_IP"
 echo "Public IP : $PUBLIC_IP"
+
+
+
+aws route53 change-resource-record-sets \
+    --hosted-zone-id "$HOSTED_ZONE_ID" \
+    --change-batch '{
+      "Changes": [{
+        "Action": "UPSERT",
+        "ResourceRecordSet": {
+          "Name": "web.example.com",
+          "Type": "A",
+          "TTL": 300,
+          "ResourceRecords": [
+            {"Value": "'"$PUBLIC_IP"'"}
+          ]
+        }
+      }]
+    }'
