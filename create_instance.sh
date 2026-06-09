@@ -5,4 +5,6 @@ aws ec2 run-instances \
     --instance-type t2.micro \
     --security-group-ids sg-06768f041e8b8b319 \
     --count 1 \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=frontend}]'
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=frontend}]' \
+    --query 'Instances[0].InstanceId' \
+    --output text
