@@ -44,6 +44,7 @@ create_instance()
             }
         }]
     }'
+    fi
 }
 
 
