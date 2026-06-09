@@ -5,7 +5,7 @@ DOMAIN_NAME="yaswanthreddypenchikala.online"
 HOSTED_ZONE_ID="Z09213753OGMO79IX22TR"
 
 
-create_instance 
+create_instance()
 {
     if [ $module = "frontend"]
     then
